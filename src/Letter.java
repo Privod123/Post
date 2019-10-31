@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Letter {
 
-    enum LetterCategoria {
+    public enum LetterCategoria {
         REGULAR, SPECIAL, FIRST_CLASS
     }
 

@@ -14,15 +14,15 @@ public class LetterBox {
     }
 
     // метод addLetter добавляет новое письмо в почтовое отделение
-    public void addLetter(Letter.LetterCategoria categoria, String sender, String adress, String recipient){
-        Letter letter = new Letter(categoria,sender,adress,recipient);
+    public void addLetter(Letter.LetterCategoria categoria, String sender, String address, String recipient){
+        Letter letter = new Letter(categoria,sender,address,recipient);
         letter.setId(id++);
         letter.setDate(new Date());
         listLetterBox.add(letter);
     }
 
     // Удаление письма из списка писем почтового отделения
-    public boolean deleteLetter(int id){
+    public boolean deleteLetter(long id){
         Letter letter = findLetter(id);
         return listLetterBox.remove(letter);
     }
