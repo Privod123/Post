@@ -1,3 +1,5 @@
+package Post;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -7,7 +9,7 @@ public class LetterBox {
 
     private MainOfficePost mainOfficePost;
     private List<Letter> listLetterBox = new ArrayList<>(); // Место куда складывают все письма
-    private static long id = 0;                             // Номер которое присвоется письму на почте
+    private static long id = 0;                             // Номер которое присвоется письму на почте(хранилище)
 
     public LetterBox() {
         mainOfficePost = new MainOfficePost();
@@ -54,7 +56,7 @@ public class LetterBox {
             if (listLetterBox.get(i).getId() == id){
                 return listLetterBox.get(i);
             }else {
-                System.out.println("Письма с таким номером нет на почте");
+                System.out.println("Письма с таким id нет");
             }
         }
         return null;
