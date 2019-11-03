@@ -20,4 +20,9 @@ public class ListCommand implements UserCommand {
             System.out.println(letter);
         }
     }
+
+    @Override
+    public String toString() {
+        return "ListCommand{}";
+    }
 }

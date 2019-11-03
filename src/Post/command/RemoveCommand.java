@@ -20,4 +20,11 @@ public class RemoveCommand implements UserCommand {
             System.out.println("Letter " + id + " was not found");
         }
     }
+
+    @Override
+    public String toString() {
+        return "RemoveCommand{" +
+                "id=" + id +
+                '}';
+    }
 }

@@ -11,4 +11,9 @@ public class SendCommand implements UserCommand {
         List<Long> idLetters = letterBox.sendToMainOffice();
         System.out.println("Following letters were sent " + idLetters);
     }
+
+    @Override
+    public String toString() {
+        return "SendCommand{}";
+    }
 }

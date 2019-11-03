@@ -8,4 +8,9 @@ public class ExitCommand implements UserCommand {
         System.out.println("Exiting...");
         System.exit(0);
     }
+
+    @Override
+    public String toString() {
+        return "ExitCommand{}";
+    }
 }

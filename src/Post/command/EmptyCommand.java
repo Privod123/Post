@@ -7,4 +7,9 @@ public class EmptyCommand implements UserCommand {
     public void execute(LetterBox letterBox) {
 
     }
+
+    @Override
+    public String toString() {
+        return "EmptyCommand{}";
+    }
 }

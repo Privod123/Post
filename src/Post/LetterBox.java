@@ -1,11 +1,15 @@
 package Post;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 public class LetterBox {
+
+    private static final Logger log =  Logger.getLogger(LetterBox.class);
 
     private MainOfficePost mainOfficePost;
     private List<Letter> listLetterBox = new ArrayList<>(); // Место куда складывают все письма
@@ -16,17 +20,25 @@ public class LetterBox {
     }
 
     // метод addLetter добавляет новое письмо в почтовое отделение
-    public void addLetter(Letter.LetterCategoria categoria, String sender, String address, String recipient){
+    public long addLetter(Letter.LetterCategoria categoria, String sender, String address, String recipient){
         Letter letter = new Letter(categoria,sender,address,recipient);
         letter.setId(id++);
         letter.setDate(new Date());
         listLetterBox.add(letter);
+        log.debug("Add following letter: categoria - " + categoria + ", sender - " + sender + ", address - " + address + ", recipient - " + recipient);
+        return letter.getId();
     }
 
     // Удаление письма из списка писем почтового отделения
     public boolean deleteLetter(long id){
         Letter letter = findLetter(id);
-        return listLetterBox.remove(letter);
+        boolean statusDelete = listLetterBox.remove(letter);
+        if (statusDelete){
+            log.debug("Delete letter: id - " + id);
+        } else {
+            log.debug("Couldn't delete letter: id - " + id);
+        }
+        return statusDelete;
     }
 
     // возвращает список всех писем,которые есть на почте
@@ -36,6 +48,7 @@ public class LetterBox {
 
     // Возвращает список id писем которые отправлены в главный офис
     public List<Long> sendToMainOffice(){
+        log.debug("Sending letters to main office.");
         List<Long> ids = new ArrayList<>();
         Iterator<Letter> iterator = listLetterBox.iterator();
         while (iterator.hasNext()){

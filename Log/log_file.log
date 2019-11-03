@@ -1,0 +1,11 @@
+2019-11-03 15:19:51 DEBUG HelpCommand{}
+2019-11-03 15:20:12 DEBUG AddCommand{sender='ttt', address='123', recipient='rrr', categoria=FIRST_CLASS}
+2019-11-03 15:20:12 DEBUG Add following letter: categoria - FIRST_CLASS, sender - ttt, address - 123, recipient - rrr
+2019-11-03 15:20:33 DEBUG AddCommand{sender='www', address='456', recipient='uuu', categoria=REGULAR}
+2019-11-03 15:20:33 DEBUG Add following letter: categoria - REGULAR, sender - www, address - 456, recipient - uuu
+2019-11-03 15:20:44 DEBUG ListCommand{}
+2019-11-03 15:21:10 DEBUG SendCommand{}
+2019-11-03 15:21:10 DEBUG Sending letters to main office.
+2019-11-03 15:21:10 DEBUG Sending to main office letter : Letter{categoria=FIRST_CLASS, sender='ttt', adress='123', recipient='rrr', id=0, date=Sun Nov 03 15:20:12 MSK 2019}
+2019-11-03 15:21:10 DEBUG Sending to main office letter : Letter{categoria=REGULAR, sender='www', adress='456', recipient='uuu', id=1, date=Sun Nov 03 15:20:33 MSK 2019}
+2019-11-03 15:21:16 DEBUG ExitCommand{}

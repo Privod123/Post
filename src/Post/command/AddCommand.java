@@ -18,6 +18,18 @@ public class AddCommand implements UserCommand {
 
     @Override
     public void execute(LetterBox letterBox) {
-        letterBox.addLetter(categoria,sender,address,recipient);
+        Long id = letterBox.addLetter(categoria,sender,address,recipient);
+        System.out.println("Added leter: id = " + id);
+
+    }
+
+    @Override
+    public String toString() {
+        return "AddCommand{" +
+                "sender='" + sender + '\'' +
+                ", address='" + address + '\'' +
+                ", recipient='" + recipient + '\'' +
+                ", categoria=" + categoria +
+                '}';
     }
 }

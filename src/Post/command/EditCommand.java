@@ -48,4 +48,14 @@ public class EditCommand implements UserCommand {
         }
     }
 
+    @Override
+    public String toString() {
+        return "EditCommand{" +
+                "id=" + id +
+                ", sender='" + sender + '\'' +
+                ", address='" + address + '\'' +
+                ", recipient='" + recipient + '\'' +
+                ", categoria=" + categoria +
+                '}';
+    }
 }

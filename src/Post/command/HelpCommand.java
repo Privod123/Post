@@ -14,4 +14,9 @@ public class HelpCommand implements UserCommand {
         System.out.println("help");
         System.out.println("exit");
     }
+
+    @Override
+    public String toString() {
+        return "HelpCommand{}";
+    }
 }
