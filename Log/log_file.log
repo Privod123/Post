@@ -1,11 +1,33 @@
-2019-11-03 15:19:51 DEBUG HelpCommand{}
-2019-11-03 15:20:12 DEBUG AddCommand{sender='ttt', address='123', recipient='rrr', categoria=FIRST_CLASS}
-2019-11-03 15:20:12 DEBUG Add following letter: categoria - FIRST_CLASS, sender - ttt, address - 123, recipient - rrr
-2019-11-03 15:20:33 DEBUG AddCommand{sender='www', address='456', recipient='uuu', categoria=REGULAR}
-2019-11-03 15:20:33 DEBUG Add following letter: categoria - REGULAR, sender - www, address - 456, recipient - uuu
-2019-11-03 15:20:44 DEBUG ListCommand{}
-2019-11-03 15:21:10 DEBUG SendCommand{}
-2019-11-03 15:21:10 DEBUG Sending letters to main office.
-2019-11-03 15:21:10 DEBUG Sending to main office letter : Letter{categoria=FIRST_CLASS, sender='ttt', adress='123', recipient='rrr', id=0, date=Sun Nov 03 15:20:12 MSK 2019}
-2019-11-03 15:21:10 DEBUG Sending to main office letter : Letter{categoria=REGULAR, sender='www', adress='456', recipient='uuu', id=1, date=Sun Nov 03 15:20:33 MSK 2019}
-2019-11-03 15:21:16 DEBUG ExitCommand{}
+2019-11-04 17:04:03 DEBUG Start work
+2019-11-04 17:04:07 DEBUG ListCommand{}
+2019-11-04 17:04:16 DEBUG EditCommand{id=1, sender='null', address='null', recipient='null', categoria=null}
+2019-11-04 17:04:43 DEBUG ListCommand{}
+2019-11-04 17:05:51 DEBUG AddCommand{sender='Natasha', address='Street 2', recipient='Djon', categoria=FIRST_CLASS}
+2019-11-04 17:05:51 DEBUG Add following letter: categoria - FIRST_CLASS, sender - Natasha, address - Street 2, recipient - Djon
+2019-11-04 17:05:57 DEBUG ListCommand{}
+2019-11-04 17:06:07 DEBUG ExitCommand{}
+2019-11-04 17:06:07 DEBUG Finish work
+2019-11-04 17:06:07 DEBUG  --------------------------------- 
+2019-11-04 17:14:03 DEBUG Start work
+2019-11-04 17:17:57 DEBUG Start work
+2019-11-04 17:19:03 DEBUG Start work
+2019-11-04 17:20:07 DEBUG Start work
+2019-11-04 17:20:36 DEBUG Start work
+2019-11-04 17:20:50 DEBUG ListCommand{}
+2019-11-04 17:21:32 DEBUG AddCommand{sender='Jerry', address='Street 4', recipient='Bush', categoria=FIRST_CLASS}
+2019-11-04 17:21:32 DEBUG Add following letter: categoria - FIRST_CLASS, sender - Jerry, address - Street 4, recipient - Bush
+2019-11-04 17:21:47 DEBUG ExitCommand{}
+2019-11-04 17:21:47 DEBUG Finish work
+2019-11-04 17:21:47 DEBUG  --------------------------------- 
+2019-11-04 17:23:46 DEBUG Start work
+2019-11-04 17:23:49 DEBUG ListCommand{}
+2019-11-04 17:24:18 DEBUG AddCommand{sender='Jerry', address='Street 4', recipient='Tom', categoria=FIRST_CLASS}
+2019-11-04 17:24:18 DEBUG Add following letter: categoria - FIRST_CLASS, sender - Jerry, address - Street 4, recipient - Tom
+2019-11-04 17:25:07 DEBUG AddCommand{sender='rtrt', address='Street 6', recipient='Ivan', categoria=REGULAR}
+2019-11-04 17:25:07 DEBUG Add following letter: categoria - REGULAR, sender - rtrt, address - Street 6, recipient - Ivan
+2019-11-04 17:25:12 DEBUG ListCommand{}
+2019-11-04 17:27:10 DEBUG EditCommand{id=3, sender='null', address='null', recipient='null', categoria=null}
+2019-11-04 17:27:26 DEBUG ListCommand{}
+2019-11-04 17:27:47 DEBUG ExitCommand{}
+2019-11-04 17:27:47 DEBUG Finish work
+2019-11-04 17:27:47 DEBUG  --------------------------------- 

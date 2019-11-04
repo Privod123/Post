@@ -10,12 +10,17 @@ public class Main {
 
     public static void main(String[] args) {
 
+        commandLog.debug("Start work");
         LetterBox letterBox = new LetterBox();
         UserConcoleInputReader userConcoleInputReader = new UserConcoleInputReader();
         while (true){
             UserCommand command = userConcoleInputReader.start();
-            if ((command != null) && (command instanceof UserCommand)){
+            if (command != null){
                 commandLog.debug(command.toString());
+                if (command instanceof ExitCommand){
+                    commandLog.debug("Finish work");
+                    commandLog.debug(" --------------------------------- ");
+                }
                 starCommand(command, letterBox,userConcoleInputReader);
             }else {
                 System.out.println("Unknown command");

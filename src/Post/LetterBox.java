@@ -2,6 +2,12 @@ package Post;
 
 import org.apache.log4j.Logger;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -17,6 +23,12 @@ public class LetterBox {
 
     public LetterBox() {
         mainOfficePost = new MainOfficePost();
+        List<Letter> loadLetters = read();
+        listLetterBox.addAll(loadLetters);
+        for (Letter letterBox : listLetterBox) {
+            id = Math.max(id, letterBox.getId()) + 1;
+        }
+
     }
 
     // метод addLetter добавляет новое письмо в почтовое отделение
@@ -25,6 +37,7 @@ public class LetterBox {
         letter.setId(id++);
         letter.setDate(new Date());
         listLetterBox.add(letter);
+        save();
         log.debug("Add following letter: categoria - " + categoria + ", sender - " + sender + ", address - " + address + ", recipient - " + recipient);
         return letter.getId();
     }
@@ -34,6 +47,7 @@ public class LetterBox {
         Letter letter = findLetter(id);
         boolean statusDelete = listLetterBox.remove(letter);
         if (statusDelete){
+            save();
             log.debug("Delete letter: id - " + id);
         } else {
             log.debug("Couldn't delete letter: id - " + id);
@@ -58,6 +72,7 @@ public class LetterBox {
                 iterator.remove();
             }
         }
+        save();
         return ids;
     }
 
@@ -68,8 +83,6 @@ public class LetterBox {
         for (int i = 0; i < listLetterBox.size(); i++) {
             if (listLetterBox.get(i).getId() == id){
                 return listLetterBox.get(i);
-            }else {
-                System.out.println("Письма с таким id нет");
             }
         }
         return null;
@@ -82,5 +95,58 @@ public class LetterBox {
         return "LetterBox{" +
                 "listLetterBox=" + listLetterBox +
                 '}';
+    }
+
+    public void save(){
+        try(PrintWriter writer = new PrintWriter(Paths.get("saveLetters.txt").toFile())){
+            for (Letter letterBox : listLetterBox) {
+                writer.print(letterBox.getId());
+                writer.print("\t");
+                writer.print(letterBox.getCategoria());
+                writer.print("\t");
+                writer.print(letterBox.getSender());
+                writer.print("\t");
+                writer.print(letterBox.getAdress());
+                writer.print("\t");
+                writer.print(letterBox.getRecipient());
+                writer.print("\t");
+                writer.print(letterBox.getDate().getTime());
+                writer.println();
+            }
+        } catch (FileNotFoundException e) {
+            log.error("Error saving file ", e);
+        }
+
+    }
+
+    public List<Letter> read (){
+        List<Letter> letters = new ArrayList<>();
+        try {
+            List<String> listSaveLetters = Files.readAllLines(Paths.get("saveLetters.txt"));
+            for (String listSaveLetter : listSaveLetters) {
+                String[] token = listSaveLetter.trim().split("\t");
+                long id = Long.parseLong(token[0].trim());
+                Letter.LetterCategoria categoria = Letter.LetterCategoria.valueOf(token[1]);
+                Date date = new Date(Long.parseLong(token[5]));
+                letters.add(new Letter(categoria,token[2],token[3],token[4],id,date));
+            }
+        } catch (IOException e) {
+            log.error("Error reading file ", e);
+        }
+
+        return letters;
+    }
+
+    public void update(Letter.LetterCategoria categoria, String sender, String address, String recipient, long id) {
+        Letter letter = findLetter(id);
+        if (letter == null){
+            System.out.println("Letter " + id + " was not found");
+        } else {
+            letter.setSender(sender);
+            letter.setAdress(address);
+            letter.setRecipient(recipient);
+            letter.setCategoria(categoria);
+        }
+        save();
     }
 }

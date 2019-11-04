@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Letter {
 
+
     public enum LetterCategoria {
         REGULAR, SPECIAL, FIRST_CLASS
     }
@@ -20,6 +21,12 @@ public class Letter {
         this.sender = sender;
         this.adress = adress;
         this.recipient = recipient;
+    }
+
+    public Letter(LetterCategoria categoria, String sender, String adress, String recipient, long id, Date date) {
+        this(categoria,sender,adress,recipient);
+        this.id = id;
+        this.date = date;
     }
 
     public long getId() {

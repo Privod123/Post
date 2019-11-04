@@ -37,15 +37,8 @@ public class EditCommand implements UserCommand {
 
     @Override
     public void execute(LetterBox letterBox) {
-        Letter letter = letterBox.findLetter(id);
-        if (letter == null){
-            System.out.println("Letter " + id + " was not found");
-        } else {
-            letter.setSender(sender);
-            letter.setAdress(address);
-            letter.setRecipient(recipient);
-            letter.setCategoria(categoria);
-        }
+        letterBox.update(categoria,sender,address,recipient,id);
+        System.out.println("letter id = " + id + " : changed");
     }
 
     @Override
